@@ -58,10 +58,10 @@ const AddCoffee = () => {
                         <label className="label text-lg font-semibold">Taste</label>
                         <input type="text" name='taste' className="input w-full" placeholder="Enter coffee taste" />
                     </fieldset>
-                    {/* Category */}
+                    {/* Price */}
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-                        <label className="label text-lg font-semibold">Category</label>
-                        <input type="text" name='category' className="input w-full" placeholder="Enter coffee category" />
+                        <label className="label text-lg font-semibold">Price</label>
+                        <input type="text" name='price' className="input w-full" placeholder="Price per cup" />
                     </fieldset>
                     {/* Details */}
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
@@ -72,7 +72,7 @@ const AddCoffee = () => {
                 {/* Photo URL */}
                 <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border my-6 p-4">
                     <label className="label text-lg font-semibold">Photo</label>
-                    <input type="text" name='details' className="input w-full" placeholder="Enter Photo URL" />
+                    <input type="text" name='photo' className="input w-full" placeholder="Enter Photo URL" />
                 </fieldset>
 
                 <input type="submit" className='btn w-full bg-[#D2B48C]' value="Add Coffee" />

@@ -17,7 +17,9 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Home
+        loader: () => fetch('http://localhost:3000/coffees'),
+        Component: Home,
+        hydrateFallbackElement:true,
       },
       {
         path:'/addCoffee',
