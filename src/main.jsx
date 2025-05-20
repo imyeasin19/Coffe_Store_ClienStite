@@ -11,6 +11,10 @@ import Home from './Component/Home.jsx';
 import AddCoffee from './Component/AddCoffee.jsx';
 import UpdateCoffee from './Component/UpdateCoffee.jsx';
 import CoffeeDetails from './Component/CoffeeDetails.jsx';
+import Login from './Component/Login.jsx';
+import Register from './Component/Register.jsx';
+import AuthProvider from './Context/AuthProvider.jsx';
+import Users from './Component/Users.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,7 +22,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/coffees'),
+        loader: () => fetch('https://coffee-store-server-omega-fawn.vercel.app/coffees'),
         Component: Home,
         hydrateFallbackElement:true,
       },
@@ -28,14 +32,28 @@ const router = createBrowserRouter([
       },
       {
         path:'/coffee/:id',
-        loader: ({params}) => fetch(`http://localhost:3000/coffees/${params.id}`),
+        loader: ({params}) => fetch(`https://coffee-store-server-omega-fawn.vercel.app/coffees/${params.id}`),
         Component: CoffeeDetails,
         hydrateFallbackElement:true,
       },
       {
         path: '/updateCoffee/:id',
-         loader: ({params}) => fetch(`http://localhost:3000/coffees/${params.id}`),
+         loader: ({params}) => fetch(`https://coffee-store-server-omega-fawn.vercel.app/coffees/${params.id}`),
         Component: UpdateCoffee,
+        hydrateFallbackElement:true,
+      },
+      {
+        path: '/login',
+        Component: Login
+      },
+      {
+        path: '/register',
+        Component: Register,
+      },
+      {
+        path: '/users',
+        loader: () => fetch('https://coffee-store-server-omega-fawn.vercel.app/users'),
+        Component: Users,
         hydrateFallbackElement:true,
       }
     ]
@@ -44,6 +62,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

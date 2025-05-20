@@ -10,7 +10,7 @@ const AddCoffee = () => {
         console.log(coffeeData);
 
         // send data to the server
-        fetch('http://localhost:3000/coffees', {
+        fetch('https://coffee-store-server-omega-fawn.vercel.app/coffees', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
